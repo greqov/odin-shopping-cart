@@ -1,0 +1,30 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es6": true,
+    "worker": true,
+    "jest": true
+  },
+  "extends": ["airbnb-base", "prettier", "plugin:react/recommended", "plugin:jest-dom/recommended"],
+  "plugins": ["prettier", "testing-library", "jest-dom"],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
+    "strict": ["error", "global"],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
+  },
+  "ignorePatterns": ["dist/"],
+  "overrides": [
+    {
+      // enable eslint-plugin-testing-library rules or preset only for matching testing files!
+      "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+      "extends": ["plugin:testing-library/react"]
+    }
+  ]
+}
