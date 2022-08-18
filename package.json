@@ -1,7 +1,7 @@
 {
-  "name": "odin-react-template",
+  "name": "odin-react-shopping-cart",
   "version": "1.0.0",
-  "description": "",
+  "description": "Shopping cart app (React, React Testing Library) for The Odin Project",
   "private": true,
   "scripts": {
     "test": "jest",
@@ -17,7 +17,7 @@
       "prettier --write",
       "jest --bail --findRelatedTests --passWithNoTests"
     ],
-    "*.(html|css|json)": [
+    "*.(html|css|json|md)": [
       "prettier --write"
     ]
   },

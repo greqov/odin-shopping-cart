@@ -1,19 +1,17 @@
-# React.js template project
+# Shopping cart app
+
+_Shopping cart app (React, React Testing Library) for The Odin Project_
+
+- Assignment: [Project Shopping Cart](https://www.theodinproject.com/lessons/javascript-shopping-cart)
+- Live preview: [https://greqov.github.io/odin-shopping-cart/](https://greqov.github.io/odin-shopping-cart/)
 
 ## Features:
 
-- react
-- airbnb
-- eslint
-- prettier
-- webpack
-- babel
-- tailwindcss
-- jest + react-testing-library
+- ...
 
 ## TODO:
 
-- [x] add tests support
+- [ ] clean up project, update README
 
 ## Development
 
