@@ -16,11 +16,11 @@ module.exports = {
   devServer: {
     static: './dist',
     watchFiles: ['./src/**/*.html'],
-    open: {
-      app: {
-        name: 'chromium',
-      },
-    },
+    // open: {
+    //   app: {
+    //     name: 'chromium',
+    //   },
+    // },
     historyApiFallback: true,
   },
   plugins: [
