@@ -10,6 +10,7 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    publicPath: '/',
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -20,6 +21,7 @@ module.exports = {
         name: 'chromium',
       },
     },
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
