@@ -1,6 +1,7 @@
 {
   "name": "odin-react-shopping-cart",
   "version": "1.0.0",
+  "homepage": "https://greqov-shopping-cart.netlify.app",
   "description": "Shopping cart app (React, React Testing Library) for The Odin Project",
   "private": true,
   "scripts": {
@@ -32,6 +33,7 @@
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "14.4.3",
     "babel-loader": "9.1.2",
+    "copy-webpack-plugin": "11.0.0",
     "css-loader": "6.7.3",
     "eslint": "8.31.0",
     "eslint-config-airbnb-base": "15.0.0",
