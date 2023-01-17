@@ -4,6 +4,8 @@ import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import App from '../App';
 
+// TODO: add before each setup?
+
 describe('App component', () => {
   it('renders correctly', () => {
     render(
@@ -26,5 +28,17 @@ describe('App component', () => {
     await userEvent.click(screen.getByText(/shop/i));
 
     expect(screen.getByRole('heading')).toHaveTextContent(/such shop/i);
+  });
+
+  test('has 404 page', () => {
+    const badRoute = '/sh22p';
+
+    render(
+      <MemoryRouter initialEntries={[badRoute]}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/nothing found/i)).toBeInTheDocument();
   });
 });
