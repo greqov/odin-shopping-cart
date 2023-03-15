@@ -22,6 +22,18 @@ describe('App component', () => {
     expect(screen.getByRole('heading')).toHaveTextContent(/such shop/i);
   });
 
+  test('has checkout page', () => {
+    const route = '/checkout';
+
+    render(
+      <MemoryRouter initialEntries={[route]}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/checkout/i)).toBeInTheDocument();
+  });
+
   test('has 404 page', () => {
     const badRoute = '/sh22p';
 
