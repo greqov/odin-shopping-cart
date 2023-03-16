@@ -1,4 +1,10 @@
 {
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "root": true,
   "env": {
     "browser": true,
@@ -8,6 +14,11 @@
   },
   "extends": ["airbnb-base", "prettier", "plugin:react/recommended", "plugin:jest-dom/recommended"],
   "plugins": ["prettier", "testing-library", "jest-dom"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "prettier/prettier": "error",
     "no-unused-vars": "warn",
@@ -17,7 +28,8 @@
     "object-shorthand": "off",
     "class-methods-use-this": "off",
     "strict": ["error", "global"],
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "react/prop-types": "off"
   },
   "ignorePatterns": ["dist/"],
   "overrides": [

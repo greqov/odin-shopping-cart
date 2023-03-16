@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -10,22 +11,27 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    publicPath: '/',
   },
   devtool: 'inline-source-map',
   devServer: {
     static: './dist',
     watchFiles: ['./src/**/*.html'],
-    open: {
-      app: {
-        name: 'chromium',
-      },
-    },
+    // open: {
+    //   app: {
+    //     name: 'chromium',
+    //   },
+    // },
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
       // title: 'Template',
       template: './src/index.html',
       favicon: './src/favicon.ico',
+    }),
+    new CopyPlugin({
+      patterns: [{ from: 'public' }],
     }),
   ],
   module: {
