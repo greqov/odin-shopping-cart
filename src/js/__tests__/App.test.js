@@ -34,6 +34,18 @@ describe('App component', () => {
     expect(screen.getByText(/checkout/i)).toBeInTheDocument();
   });
 
+  test('has cart page', () => {
+    const route = '/cart';
+
+    render(
+      <MemoryRouter initialEntries={[route]}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/my cart/i)).toBeInTheDocument();
+  });
+
   test('has 404 page', () => {
     const badRoute = '/sh22p';
 
