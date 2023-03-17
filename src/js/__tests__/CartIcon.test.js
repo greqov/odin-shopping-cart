@@ -5,8 +5,7 @@ import CardIcon from '../components/CartIcon';
 describe('Cart icon', () => {
   test('renders correctly', () => {
     render(<CardIcon />);
-    // TODO: don't like getByTitle here
-    expect(screen.getByTitle(/go to cart page/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/go to cart page/i)).toBeInTheDocument();
   });
 
   test('shows total price', () => {

@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function CardIcon({ price }) {
   return (
-    <span className="flex" title="Go to cart page">
+    <span className="flex" aria-label="Go to cart page">
       {price > 0 && <span className="block mr-1">{`$${price}`}</span>}
 
       <svg
