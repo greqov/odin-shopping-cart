@@ -8,11 +8,31 @@ export default function Count() {
   }
 
   function decreseCount() {
+    if (count === 0) return;
     setCount(count - 1);
   }
 
+  function handleChange(e) {
+    const { value } = e.target;
+    const parsedValue = parseInt(value, 10);
+
+    if (Number.isNaN(parsedValue)) {
+      setCount('');
+      return;
+    }
+
+    // NOTE: prevent pasting negative number
+    setCount(Math.abs(parsedValue));
+  }
+
+  function handleBlur(e) {
+    if (e.target.value === '') {
+      setCount(0);
+    }
+  }
+
   return (
-    <div>
+    <div className="flex items-center">
       <button type="button" aria-label="Decrease button" onClick={decreseCount}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +49,13 @@ export default function Count() {
           <line x1="5" y1="12" x2="19" y2="12"></line>
         </svg>
       </button>
-      <input className="w-20 text-center" type="text" value={count} onChange={() => {}} />
+      <input
+        className="w-20 text-center"
+        type="text"
+        value={count}
+        onChange={handleChange}
+        onBlur={handleBlur}
+      />
       <button type="button" aria-label="Increase button" onClick={increaseCount}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
