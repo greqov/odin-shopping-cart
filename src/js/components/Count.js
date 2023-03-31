@@ -7,7 +7,7 @@ export default function Count() {
     setCount(count + 1);
   }
 
-  function decreseCount() {
+  function decreaseCount() {
     if (count === 0) return;
     setCount(count - 1);
   }
@@ -33,7 +33,7 @@ export default function Count() {
 
   return (
     <div className="flex items-center">
-      <button type="button" aria-label="Decrease button" onClick={decreseCount}>
+      <button type="button" aria-label="Decrease button" onClick={decreaseCount}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
