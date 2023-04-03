@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import Count from '../components/Count';
 
 const setup = () => {
-  render(<Count />);
+  render(<Count count={1} />);
 
   const increaseBtn = screen.getByRole('button', { name: /increase button/i });
   const decreaseBtn = screen.getByRole('button', { name: /decrease button/i });
@@ -23,28 +23,26 @@ describe('Count component', () => {
 
     expect(decreaseBtn).toBeInTheDocument();
     expect(increaseBtn).toBeInTheDocument();
-    expect(input).toHaveValue('3');
+    expect(input).toHaveValue('1');
   });
 
   test('changes value with button clicks', async () => {
     const user = userEvent.setup();
     const { increaseBtn, decreaseBtn, input } = setup();
 
-    expect(input).toHaveValue('3');
+    expect(input).toHaveValue('1');
     await user.click(increaseBtn);
-    expect(input).toHaveValue('4');
+    expect(input).toHaveValue('2');
     await user.click(decreaseBtn);
-    expect(input).toHaveValue('3');
+    expect(input).toHaveValue('1');
   });
 
   test("can't decrease quantity below 0", async () => {
     const user = userEvent.setup();
     const { decreaseBtn, input } = setup();
 
-    expect(input).toHaveValue('3');
-    // TODO: pass 1 as props to reduce dublication below
-    await user.click(decreaseBtn);
-    await user.click(decreaseBtn);
+    expect(input).toHaveValue('1');
+
     await user.click(decreaseBtn);
     await user.click(decreaseBtn);
 

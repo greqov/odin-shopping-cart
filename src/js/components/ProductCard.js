@@ -15,7 +15,7 @@ export default function ProductCard({ product }) {
       <h3>{title}</h3>
       <div>price: {`$${price}`}</div>
       {quantity ? (
-        <Count />
+        <Count count={quantity} />
       ) : (
         <button type="button" onClick={addProduct}>
           Add to cart

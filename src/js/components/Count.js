@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-export default function Count() {
-  const [count, setCount] = useState(3);
+export default function Count(props) {
+  const [count, setCount] = useState(props.count);
 
   function increaseCount() {
     setCount(count + 1);

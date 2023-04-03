@@ -57,6 +57,6 @@ describe('Product card', () => {
 
     expect(screen.queryByRole('button', { name: /add to cart/i })).not.toBeInTheDocument();
     expect(screen.getByRole('button', { name: /decrease button/i })).toBeInTheDocument();
-    expect(screen.getByRole('textbox', { name: /product quantity/i })).toHaveValue('3');
+    expect(screen.getByRole('textbox', { name: /product quantity/i })).toHaveValue('1');
   });
 });
