@@ -55,6 +55,7 @@ export default function Count() {
         value={count}
         onChange={handleChange}
         onBlur={handleBlur}
+        aria-label="Product quantity"
       />
       <button type="button" aria-label="Increase button" onClick={increaseCount}>
         <svg
