@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Count from '../components/Count';
 
+// NOTE: wrapper is for holding state
+const Wrapper = () => {
+  const [count, setCount] = useState(1);
+
+  return (
+    <>
+      <Count count={count} setCount={setCount} />
+    </>
+  );
+};
+
 const setup = () => {
-  render(<Count count={1} />);
+  render(<Wrapper />);
 
   const increaseBtn = screen.getByRole('button', { name: /increase button/i });
   const decreaseBtn = screen.getByRole('button', { name: /decrease button/i });

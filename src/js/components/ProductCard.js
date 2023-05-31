@@ -14,12 +14,12 @@ export default function ProductCard({ product }) {
       <img src={img.src} alt={img.alt} />
       <h3>{title}</h3>
       <div>price: {`$${price}`}</div>
-      {quantity ? (
-        <Count count={quantity} />
-      ) : (
+      {quantity === 0 ? (
         <button type="button" onClick={addProduct}>
           Add to cart
         </button>
+      ) : (
+        <Count count={quantity} setCount={setQuantity} />
       )}
     </div>
   );

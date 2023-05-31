@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export default function Count(props) {
-  const [count, setCount] = useState(props.count);
-
+export default function Count({ count, setCount }) {
   function increaseCount() {
     setCount(count + 1);
   }
