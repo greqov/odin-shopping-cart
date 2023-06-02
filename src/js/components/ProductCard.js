@@ -3,7 +3,7 @@ import Count from './Count';
 
 export default function ProductCard({ product }) {
   const { img, title, price } = product;
-  const [quantity, setQuantity] = useState(product.quantity);
+  const [quantity, setQuantity] = useState(0);
 
   function addProduct() {
     setQuantity(quantity + 1);

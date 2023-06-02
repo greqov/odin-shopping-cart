@@ -12,7 +12,6 @@ const setup = () => {
     },
     title: 'product title',
     price: 20,
-    quantity: 0,
   };
 
   render(<ProductCard product={product} />);
@@ -41,17 +40,13 @@ describe('Product card', () => {
 
   // NOTE: this test seems obsolete because the next one starts with the same setup :
   test('shows "Add to cart" button by default', () => {
-    const { product } = setup();
-
-    expect(product.quantity).toBe(0);
+    setup();
     expect(screen.getByRole('button', { name: /add to cart/i })).toBeInTheDocument();
   });
 
   test('shows counter after clicking on "Add to cart" button', async () => {
     const user = userEvent.setup();
-    const { product } = setup();
-
-    expect(product.quantity).toBe(0);
+    setup();
 
     await user.click(screen.getByRole('button', { name: /add to cart/i }));
 

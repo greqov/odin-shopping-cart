@@ -9,7 +9,6 @@ const product = {
   },
   title: 'Product title',
   price: 20,
-  quantity: 0,
 };
 
 export default function Shop() {
