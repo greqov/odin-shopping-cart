@@ -17,9 +17,9 @@ describe('App component', () => {
   test('shows Shop page after clicking on "shop" link', async () => {
     render(<App />, { wrapper: BrowserRouter });
 
-    await userEvent.click(screen.getByText(/shop/i));
+    await userEvent.click(screen.getByRole('link', { name: /shop/i }));
 
-    expect(screen.getByRole('heading')).toHaveTextContent(/such shop/i);
+    expect(screen.getByRole('heading', { name: /such shop/i })).toBeInTheDocument();
   });
 
   test('has checkout page', () => {
