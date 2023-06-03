@@ -4,10 +4,10 @@ import CartContext from '../context/CartContext';
 import CartIcon from '../components/CartIcon';
 
 export default function Layout() {
-  const cart = useContext(CartContext);
+  const { cart } = useContext(CartContext);
 
   // TODO: count tax and discount in total price
-  const total = cart.products.reduce((prev, curr) => prev + curr.quantily * curr.price, 0);
+  const total = cart.products.reduce((prev, curr) => prev + curr.quantity * curr.price, 0);
 
   return (
     <div>

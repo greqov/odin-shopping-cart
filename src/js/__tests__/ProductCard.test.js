@@ -1,27 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import CartContext from '../context/CartContext';
 import ProductCard from '../components/ProductCard';
 
-// NOTE: not sute if using setup fn is a great idea
-const setup = () => {
-  const product = {
-    img: {
-      src: 'product.png',
-      alt: 'product alt text',
-    },
-    title: 'product title',
-    price: 20,
+const product = {
+  id: 101,
+  img: {
+    src: 'product.png',
+    alt: 'product alt text',
+  },
+  title: 'product title',
+  price: 20,
+};
+
+const Wrapper = () => {
+  const [cart, setCart] = useState({ products: [] });
+
+  // NOTE: this mock feels wrong; it mocks only adding a product
+  // is it make sense to mock/test removing a product?
+  const updateCart = (item) => {
+    setCart({ products: [...cart.products, item] });
   };
 
-  render(<ProductCard product={product} />);
+  return (
+    <CartContext.Provider value={{ cart, updateCart }}>
+      <ProductCard product={product} />
+    </CartContext.Provider>
+  );
+};
+
+const setup = () => {
+  render(<Wrapper />);
 
   const img = screen.getByRole('img');
   const heading = screen.getByRole('heading');
   const price = screen.getByText(/\$20/i);
 
   return {
-    product,
     img,
     heading,
     price,
@@ -30,7 +46,7 @@ const setup = () => {
 
 describe('Product card', () => {
   test('has image, title and price', () => {
-    const { product, img, heading, price } = setup();
+    const { img, heading, price } = setup();
 
     // TODO: not sure if src is a good attr to test
     expect(img).toHaveAttribute('src', product.img.src);

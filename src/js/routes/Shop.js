@@ -3,6 +3,7 @@ import picAlpaca from '../../assets/products/alpaca.png';
 import ProductCard from '../components/ProductCard';
 
 const product = {
+  id: 'alpaca',
   img: {
     src: picAlpaca,
     alt: 'alpaca alt text',
