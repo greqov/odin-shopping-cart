@@ -26,10 +26,8 @@ export default function App() {
 
   const updateCart = (product) => {
     const products = [...cart.products].filter((p) => p.id !== product.id);
-
-    if (product.quantity > 0) {
-      products.push(product);
-    }
+    // NOTE: consider removing products with 0 quantity? check count input then
+    products.push(product);
 
     setCart({ ...cart, products });
   };
